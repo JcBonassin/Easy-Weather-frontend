@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="src/build/weather.js" ></script>
+    <script src="src/build/user.js" ></script>
+    <script src="src/build/login.js" ></script>
+    <script src="src/build/location.js" ></script>
+    <script src="src/API-Adapter/Api.js"></script>
+    <script defer src="src/index3.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <link rel="stylesheet" href="styles/form.css"/> -->
+    <link rel="stylesheet" href="styles/index.css"/>
+   
+
+
     <title>Document</title>
 </head>
 <body>
+  
+    <div class="api">
     
+          <div class="container">
+            <!-- <h1 class="heading">Weather Today</h1> -->
+            <!-- <a href="#" id="form" >Login/Signup</a> -->
+      <div class="login"></div>
+          </div>
+        </div>
+
+      <section class="top-banner">
+
+        <div class="container">
+          <!-- <a href="#" id="weather-form" class="btn btn-secundary">Login</a>    -->
+          <!-- <div id="new-form"></div> -->
+          
+          <h1 class="heading">Weather Today</h1>
+          <a href="#" id="form" >Login/Signup</a>
+          <!-- <a class="login-trigger" href="#" data-target="#form" data-toggle="modal">Login</a> -->
+          <!-- <button class="open-button" onclick="openForm()">Open Form</button> -->
+          
+          <div id="weather-form" ></div>  
+          <!-- <a href="#" id="form" class="btn btn-primary">Signup</a> -->
+
+          <!-- <p> -->
+          <!-- <a href="#" id="form" class="btn btn-primary">Login</a> -->
+          <!-- </p> -->
+          <!--  -->
+          <!-- <p> -->
+        <!-- <a href="#" id="form" class="btn btn-primary">Check weather</a> -->
+          <!-- </p>     -->
+          
+          <!-- <div class="weather-form"></div> -->
+
+        </div>
+      </section>
+
+
+      <section class="ajax-section">
+        <div class="container">
+          <ul class="cities"></ul>
+        </div>
+      </section>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+      <footer class="page-footer">
+        <div class="container">
+          <small>Made with <span>❤</span> by <a href="http://jcbonassin.net/" target="_blank">JC Papi Suave</a>
+          </small>
+        </div>
+      </footer>   
 </body>
 </html>
