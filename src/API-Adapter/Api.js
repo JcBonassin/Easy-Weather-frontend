@@ -39,12 +39,13 @@ class Api {
               } else {
                 window.sessionStorage.currentUsername = data.user.username;
                 window.sessionStorage.currentUserId = data.user.id;
+                // console.log(data.user.id)
                 loginButton.remove();
                 userLogin.remove();
                 welcomeLoggin();
                 // alert(`Succesfully ${welcome} - Hello!`);
                 // renderLocationWeather();
-                allLocation();
+                allLocation(data.user.id);
                 // rederAllLocations();
                 displayForm()  
             }
@@ -86,15 +87,15 @@ class Api {
               } else {
                 // let newUser = new User(data.username, data.email, data.id)
                 // console.log(newUser)
-                // window.sessionStorage.currentUsername = data.user.username;
-                // window.sessionStorage.currentEmail = data.user.email;
-                // window.sessionStorage.currentUserId = data.user.id;
+                window.sessionStorage.currentUsername = data.user.username;
+                window.sessionStorage.currentEmail = data.user.email;
+                window.sessionStorage.currentUserId = data.user.id;
                 loginButton.remove();
                 userLogin.remove();
                 welcomeLoggin();
                 // alert(`Succesfully ${welcome} - Hello!`);
                 // renderLocationWeather();
-                allLocation();
+                allLocation(data.user.id);
                 // rederAllLocations();
                 displayForm()  
             }
@@ -119,18 +120,34 @@ class Api {
     }
 
     async fetchWeatherRequest(name) {
-        let res = await fetch(this.baseURL + `locations/${name}`)
-        let data = await res.json()
+
+        // const msg = document.querySelector(".msg")
+
+        let res = await fetch(this.baseURL + `locations/${name}`);
+        if (res.status >= 200 && res.status <= 299) {
+            let data = await res.json()
+        //    await this.fetchCreateLocation(name)
+            return data;
+          console.log(data);
+        } else {
+        //   msg.textContent = "Please search for a valid city";
+          console.log(res.status, res.statusText);
+        }
+        // let res = await fetch(this.baseURL + `locations/${name}`)
+        // let data = await res.json()
         // console.log(data)
-        return data   
-    }   
+        // return data   
+    }
+      
 
-    async fetchLocation() {
-        const fetchURL =  `${this.baseURL}locations`;
-
+    async fetchLocation(userId) {
+        const fetchURL =  `${this.baseURL}users/${userId}/user_locations`;  
+        // `${this.baseURL}locations`; 
         fetch(fetchURL, {
           method: 'GET',
           headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
             // Include the encrypted token for back-end authorization
             // Authorization: `Bearer ${window.sessionStorage.accessToken}`
           }
@@ -138,9 +155,10 @@ class Api {
         .then(resp => resp.json())
         // .then(data => console.log(data));
         .then(response => {
-          response.forEach(location => {
-            //   const nameId = location.name
-            //   console.log(id)
+          response.locations.forEach(location => {
+            //   const nameId = location.user_id
+            //   console.log(nameId)
+            //  console.log(userId)
             const thislocation = new Location(location.id, location.name, location.user_id);
             // console.log(thislocation)
             // this.renderAllLocationWeather();
@@ -203,7 +221,7 @@ class Api {
       
         fetch(`${this.baseURL}locations/${nameId}`, configObj) 
         .then(function(response) {
-            console.log(response);
+            // console.log(response);
             // if (confirm('Are you sure you want to delete?')) {
                 // clearcard()
                 // console.log('deleted.');

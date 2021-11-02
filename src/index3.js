@@ -4,11 +4,9 @@
     const loginButton = document.querySelector("#form")
     const userLogin = document.querySelector(".login")
     const list = document.querySelector(".ajax-section .cities")
-    // const msg = document.querySelector(".top-banner .msg")
+    const msg = document.querySelector(".msg")
     const weatherLocation = new Location()
     
-
-
 
     $(window).on("hashchange", function () {
         if (location.hash.slice(1) == "signup") {
@@ -325,8 +323,8 @@
         }
     )}
 
-    async function allLocation() {
-        let locationsUsers = api.fetchLocation()
+    async function allLocation(userId) {
+        let locationsUsers = api.fetchLocation(userId)
         // console.log(locationsUsers)   
     }
 
@@ -346,22 +344,94 @@
     async function createLocation(e) {
         e.preventDefault()
 
+        const listItems = list.querySelectorAll(".ajax-section .city");
+        const listItemsArray = Array.from(listItems);
+        const msg = document.querySelector(".msg")
+
         let name = document.querySelector("input").value;
         // console.log(name)
-        let data = await api.fetchCreateLocation(name)
-    }
 
+
+        if (name === "") {
+            document.querySelector(".msg").textContent = "Please don't leave this box blank"
+            return;
+            }
+
+        if (listItemsArray.length > 0) {
+            const filteredArray = listItemsArray.filter(el => {
+              let content = "";
+              
+              if (name.includes(",")) {
+                
+                if (name.split(",")[1].length > 2) {
+                    name = inputVal.split(",")[0];
+                  content = el
+                    .querySelector(".city-name span")
+                    .textContent.toLowerCase();
+                } else {
+                  content = el.querySelector(".city-name").dataset.name.toLowerCase();
+                }
+              } else {
+               
+                content = el.querySelector(".city-name span").textContent.toLowerCase();
+              }
+              return content == name.toLowerCase();
+            });
+        
+
+            if (filteredArray.length > 0) {
+                msg.textContent = `You already know the weather in ${
+                 filteredArray[0].querySelector(".city-name span").textContent
+                }. Please try another city`;
+                return;
+            }
+        // let data = await api.fetchCreateLocation(name);
+        // const data = nameValid ? fetchCreateLocation(name) : error(name);         
+        }   
+
+        let data = await api.fetchWeatherRequest(name);
+        console.log(data)
+
+        if (data === undefined) {
+            msg.textContent = "Please search for a valid city";
+            return       
+        } else {
+            let nameValid = await api.fetchCreateLocation(name)
+            console.log(nameValid)
+        }
+
+    } 
+
+    // async function error(name) {
+// 
+        // const msg = document.querySelector(".msg")
+// 
+        // try { 
+                    //  
+            // api.fetchWeatherRequest(name);
+                    //  
+            // } catch (e) {
+                //   console.error(e);
+// 
+                // } finally {
+                    // msg.textContent = "Please search for a valid city";
+                    // return 
+                // }
+        // 
+    // }
+        
 
     async function renderAllLocationWeather(name, id, user_id) {
 
         // const locationId = name
         //  console.log(locationId) 
+    
 
         const dataLocation =  await api.fetchWeatherRequest(name) 
 
         
     
-        console.log(dataLocation)  
+        // console.log(dataLocation)  
          
     
             const li = document.createElement("li");
@@ -399,9 +469,9 @@
                     
                     `;
                     li.innerHTML = markup;
-                    list.append(li); 
-                    clearForm()
-                    displayForm()
+                    list.append(li);
+                    clearForm();
+                    displayForm();
 
                     // document.addEventListener('DOMContentLoaded', function() {
                         // const listItems = list.querySelectorAll(".ajax-section .city");
@@ -499,8 +569,8 @@
                     li.innerHTML = markup;
                     list.appendChild(li);
                     console.log(li)
-                    clearForm()
-                    displayForm()  
+                    // clearForm()
+                    // displayForm()  
                     api.locationUpdate()
                     //  allLocation()
                     //closeWeatherCard ()                
@@ -534,7 +604,6 @@
             console.log(listItems) 
             deleteItem.remove("city");
 
-
             // let listItems = e.currentTarget;
             // listItems.remove("city");
 
@@ -544,17 +613,17 @@
             // console.log(idDelete)   
         }
 
-        async function LocationDeleteCard(e) {
-            let listItemsWeather = e.currentTarget;
-            console.log(listItems)
-            listItemsWeather.remove("city");
-            
-        }
+        // async function LocationDeleteCard(e) {
+            // let listItemsWeather = e.currentTarget;
+            // console.log(listItems)
+            // listItemsWeather.remove("city");
+            // 
+        // }
 
-        async function clearcard(e) {
+        // async function clearcard(e) {
 
-            let listItems = e.currentTarget;
-            console.log(listItems) 
+            // let listItems = e.currentTarget;
+            // console.log(listItems) 
             // listItems.remove("city");
 
             // const childEles = document.querySelectorAll('.city');
@@ -573,7 +642,7 @@
             // let formDiv = document.querySelector(".ajax-section .city")
             // console.log(formDiv)
             // formDiv.innerHTML = ""
-        }
+        // }
 
 
 
