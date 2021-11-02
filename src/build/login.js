@@ -4,7 +4,7 @@ class Login {
        this.openForm()
     }
 
- openForm() {
+   openForm() {
     document.getElementById("form").addEventListener('click', renderLogin)   
   }  
 
