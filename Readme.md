@@ -1,6 +1,6 @@
 ![Easy Weather](https://user-images.githubusercontent.com/72950188/140430595-8c8bad48-77e2-4889-ac7e-f3e86858a098.png)
 <div align="center" > 
-<p>With this Ruby on Rails based webapp, you can easily update your photos few other stuff.</p>
+<p>With this Ruby on Rails and JavaScrip based webapp, you can easily check the weather in any city.</p>
 </div>
 
 # Hello 
@@ -21,9 +21,6 @@ So what can I do with this app:
 
 Before running the App is important to: 
 
-
-Before running the App is important to: 
-
 - Sign up for a API key on [OPENWEATHERMAP](https://openweathermap.org/). It's free
 
 Please don't forget to create a `.env` for the root of the project. This will hide your API Keys and avoid being published on your repository in case you fork it. 
@@ -35,9 +32,8 @@ API_KEY = YOURKEY
 API_NEWS = YOURKEY
 etc........ 
 ```
-Sign in and ....
 
-"Voila" you are ready to go. 
+"Voila" to the next step.... 
 
 ## Getting Started
 
@@ -71,10 +67,10 @@ rails db:seed
 rails s -p 7000 ( Optional to run your backend in pararel with your frontend)
 ```
 
-- Clone the repo: git clone https://github.com/JcBonassin/photo_35mm.git
+- Clone the repo: git clone https://github.com/JcBonassin/Easy-Weather-frontend.git
 - Install gems bundle install
 - cd to Easy-weather-js file
-- Start the server with npx lite-server 
+- Start the server with npx lite-server (Install lite-serve in case you need to: https://www.npmjs.com/package/lite-server )
 - Navigate to your local server http://localhost:3000/
 
 
@@ -87,6 +83,13 @@ Contributions are what make the open source community such an amazing place to b
 - Commit your Changes (git commit -m 'Add some AmazingFeature')
 - Push to the Branch (git push origin feature/AmazingFeature)
 - Open a Pull Request
+
+## Contact
+Connect/Follow me:
+
+[![Linkedin][linkedin-shield]][https://www.linkedin.com/in/jcbonassin/]
+[![Twitter][twitter-shield]][https://twitter.com/jcbonassin?lang=en]
+[![Dev.to][dev-to-shield]][https://dev.to/jcbonassin]
 
 ## Copyright and License
 
