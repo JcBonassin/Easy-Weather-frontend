@@ -90,7 +90,6 @@ class Api {
     }
 
 
-
     async fetchURL() {
         const fetchURL = registerUser ? `${this.baseURL}users` : `${this.baseURL}login`;
         let response = await fetch(fetchURL)
@@ -156,6 +155,7 @@ class Api {
         const fetchURL =  `${this.baseURL}locations`;
 
         fetch(fetchURL,configObj)
+        // .then(data => console.log(data));
         .then(resp => resp.json())
         .then(resp => {
             if (resp.message) {
