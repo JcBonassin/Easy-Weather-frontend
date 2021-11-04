@@ -5,20 +5,28 @@
 
 # Hello 
 
-Welcome to 35mm! 
+Welcome to Easy Weather! 
 
-This Ruby on Rails based webapp was built to upload photos, add tags and share it on a small community of photo lovers. 
+This is a single page application ("SPA") for checking the weather. 
 
-So what can I do with this gem: 
 
-- Updload photos, share, tag, like and delete and search for them.
+So what can I do with this app: 
+
+- Open you own profile or account.
+- Check the weather in any city and delete it.
+-  It gives you 1 unit system: 
+  - Metric (temperatures in Celsius)
 
 ## Important information 
 
 Before running the App is important to: 
 
 
-Please don't forget to create a `.env` for the root of the project. This will hide your Omniauth Keys and avoid being published on your repository in case you fork it. 
+Before running the App is important to: 
+
+- Sign up for a API key on [OPENWEATHERMAP](https://openweathermap.org/). It's free
+
+Please don't forget to create a `.env` for the root of the project. This will hide your API Keys and avoid being published on your repository in case you fork it. 
 
 Inside the `.env` file add the following 3 lines of code:
 
@@ -33,10 +41,40 @@ Sign in and ....
 
 ## Getting Started
 
+To get the application started you must install Ruby on Rails and sqlite3 on your computer.
+
+
+Before running your server, you will need to install the gems and add content to your database manually or you can use the seeds some data:
+
+To install the gems first cd into <a href="https://github.com/JcBonassin/Easy_weather_api_backend"></a> and run the following:
+
+```sh
+bundle install
+```
+
+To run your migrations and update your db/schema.rb file to match the structure of the database, run the following:
+
+```sh
+rails db:create
+```
+
+```sh
+rails db:migrate
+```
+
+To create data in the database, run the following:
+```sh
+rails db:seed
+```
+
+```sh
+rails s -p 7000 ( Optional to run your backend in pararel with your frontend)
+```
+
 - Clone the repo: git clone https://github.com/JcBonassin/photo_35mm.git
 - Install gems bundle install
-- Run migrations rake db:migrate
-- Start the server 
+- cd to Easy-weather-js file
+- Start the server with npx lite-server 
 - Navigate to your local server http://localhost:3000/
 
 
