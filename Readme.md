@@ -40,7 +40,7 @@ etc........
 To get the application started you must install Ruby on Rails and sqlite3 on your computer.
 
 
-Before running your server, you will need to install the gems and add content to your database manually or you can use the seeds some data:
+Before running your server, you will need to install the gems.
 
 To install the gems first cd into <a href="https://github.com/JcBonassin/Easy_weather_api_backend"></a> and run the following:
 
@@ -56,11 +56,6 @@ rails db:create
 
 ```sh
 rails db:migrate
-```
-
-To create data in the database, run the following:
-```sh
-rails db:seed
 ```
 
 ```sh
