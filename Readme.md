@@ -87,9 +87,9 @@ Contributions are what make the open source community such an amazing place to b
 ## Contact
 Connect/Follow me:
 
-[![Linkedin](https://www.linkedin.com/in/jcbonassin/)
-[![Twitter](https://twitter.com/jcbonassin?lang=en)
-[![Dev.to](https://dev.to/jcbonassin)
+[[Linkedin](https://www.linkedin.com/in/jcbonassin/)
+[[Twitter](https://twitter.com/jcbonassin?lang=en)
+[[Dev.to](https://dev.to/jcbonassin)
 
 ## Copyright and License
 
