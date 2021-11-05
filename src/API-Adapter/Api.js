@@ -15,8 +15,7 @@ class Api {
             email,
             password
           }
-        }
-      
+        }  
 
         let configObj = {
             method: "POST",
@@ -181,25 +180,6 @@ class Api {
         .then(function(response) {
         })
       }
-
-      async locationUpdate() {
-
-        const fetchURL =  `${this.baseURL}locations`;
-
-        fetch(fetchURL, {
-          method: 'GET',
-          headers: {
-          }
-        })
-        .then(resp => resp.json())
-        .then(response => {
-            response.forEach(location => {
-                const thislocation = [location.name, location.id, location.user_id]
-                console.log(thislocation)
-                renderAllLocationWeather(location.name, location.id, location.user_id)
-            }
-            )}
-        )}
 }
 
  

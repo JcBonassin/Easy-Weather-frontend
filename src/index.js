@@ -242,42 +242,44 @@
         }
     }
 
-    async function renderLocationWeather() {
+    // async function renderLocationWeather() {
+// 
+        // const data =  await api.fetchData()
+// 
+// 
+        // .then(data => {
+            // const { location, location_weather} = data;
+                // console.log(data)
+// 
+                // const li = document.createElement("li");
+                // li.classList.add("city");
+                // const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
+                    // location.current.weather[0]["icon"]
+                    // }.svg`;
+// 
+                // const markup = `
+                // <button type="button"><span class="sr-only" id="locationId"></span></button>
+                // <h2 class="city-name" data-name="${location_weather[0]["data"]["city"]},${location_weather[0]["data"]["country"]}"> Current city,
+                    // <span>${location_weather[0]["data"]["city"]}</span>
+                    // <sup>${location_weather[0]["data"]["country"]}</sup>
+                // </h2>
+                // <div class="city-temp">${Math.round(location.current.temp)}<sup>°F</sup></div>
+// 
+                // <figure>
+                        // <img class="city-icon" src="${icon}" alt="${
+                        // location.current.weather[0]["description"]
+                            // }">
+                // 
+                // <figcaption>${location.current.weather[0]["description"]}</figcaption>
+                // </figure>
+                // `;
+                // li.innerHTML = markup;
+                // list.appendChild(li);
+                // document.querySelector(".ajax-section .city").addEventListener("click", LocationDeleteCard);
+        // }
+    // )}
 
-        const data =  await api.fetchData()
-
-
-        .then(data => {
-            const { location, location_weather} = data;
-                console.log(data)
-
-                const li = document.createElement("li");
-                li.classList.add("city");
-                const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
-                    location.current.weather[0]["icon"]
-                    }.svg`;
-
-                const markup = `
-                <button type="button"><span class="sr-only" id="locationId"></span></button>
-                <h2 class="city-name" data-name="${location_weather[0]["data"]["city"]},${location_weather[0]["data"]["country"]}"> Current city,
-                    <span>${location_weather[0]["data"]["city"]}</span>
-                    <sup>${location_weather[0]["data"]["country"]}</sup>
-                </h2>
-                <div class="city-temp">${Math.round(location.current.temp)}<sup>°F</sup></div>
-
-                <figure>
-                        <img class="city-icon" src="${icon}" alt="${
-                        location.current.weather[0]["description"]
-                            }">
-                
-                <figcaption>${location.current.weather[0]["description"]}</figcaption>
-                </figure>
-                `;
-                li.innerHTML = markup;
-                list.appendChild(li);
-                document.querySelector(".ajax-section .city").addEventListener("click", LocationDeleteCard);
-        }
-    )}
+  
 
     async function allLocation(userId) {
         let locationsUsers = api.fetchLocation(userId)
@@ -392,23 +394,22 @@
     }    
 
     async function clearForm() {
-            let formDiv = document.querySelector('#weather-form')
-            formDiv.innerHTML = ""
-        }
+        let formDiv = document.querySelector('#weather-form')
+        formDiv.innerHTML = ""
+    }
 
-        async function welcomeLoggin(){
-            swal("Welcome!", ", You are logged in", "success");
-        }
-
+    async function welcomeLoggin(){
+        swal("Welcome!", ", You are logged in", "success");
+    }
     
-        async function deleteCard(e) {
-
-            let listItems = e.currentTarget.id;
-            api.locationDelete(listItems)
-            let deleteItem = e.currentTarget
-            console.log(listItems) 
-            deleteItem.remove("city");
-        }
+    async function deleteCard(e) {
+        let listItems = e.currentTarget.id;
+        api.locationDelete(listItems)
+        let deleteItem = e.currentTarget
+        console.log(listItems) 
+        deleteItem.remove("city");
+    }
+    
 
 
         
