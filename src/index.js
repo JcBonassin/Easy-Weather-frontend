@@ -67,7 +67,7 @@
             return false;
         }
     
-        else if (loginpassword.length < 2) {
+        else if (loginpassword.length < 5) {
             document.getElementById("errorMsg").innerHTML = "Your password must include atleast 8 characters"
             return false;
         }
@@ -90,7 +90,7 @@
             return false;
         }
     
-        else if (signUpPassword.length < 3) {
+        else if (signUpPassword.length < 5) {
             document.getElementById("errorMsg").innerHTML = "Your password must include atleast 8 characters"
             return false;
         }
