@@ -67,7 +67,7 @@
             return false;
         }
     
-        else if (loginpassword.length < 5) {
+        else if (loginpassword.length < 8) {
             document.getElementById("errorMsg").innerHTML = "Your password must include atleast 8 characters"
             return false;
         }
@@ -90,7 +90,7 @@
             return false;
         }
     
-        else if (signUpPassword.length < 5) {
+        else if (signUpPassword.length < 8) {
             document.getElementById("errorMsg").innerHTML = "Your password must include atleast 8 characters"
             return false;
         }
@@ -101,44 +101,6 @@
         }
     }
 
-    // async function renderLocationWeather() {
-// 
-        // const data =  await api.fetchData()
-// 
-// 
-        // .then(data => {
-            // const { location, location_weather} = data;
-                // console.log(data)
-// 
-                // const li = document.createElement("li");
-                // li.classList.add("city");
-                // const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
-                    // location.current.weather[0]["icon"]
-                    // }.svg`;
-// 
-                // const markup = `
-                // <button type="button"><span class="sr-only" id="locationId"></span></button>
-                // <h2 class="city-name" data-name="${location_weather[0]["data"]["city"]},${location_weather[0]["data"]["country"]}"> Current city,
-                    // <span>${location_weather[0]["data"]["city"]}</span>
-                    // <sup>${location_weather[0]["data"]["country"]}</sup>
-                // </h2>
-                // <div class="city-temp">${Math.round(location.current.temp)}<sup>°F</sup></div>
-// 
-                // <figure>
-                        // <img class="city-icon" src="${icon}" alt="${
-                        // location.current.weather[0]["description"]
-                            // }">
-                // 
-                // <figcaption>${location.current.weather[0]["description"]}</figcaption>
-                // </figure>
-                // `;
-                // li.innerHTML = markup;
-                // list.appendChild(li);
-                // document.querySelector(".ajax-section .city").addEventListener("click", LocationDeleteCard);
-        // }
-    // )}
-
-  
 
     async function allLocation(userId) {
         let locationsUsers = api.fetchLocation(userId)
@@ -257,7 +219,7 @@
     }
 
     async function welcomeLoggin(){
-        swal("Welcome!", ", You are logged in", "success");
+        swal("Welcome!", "You are logged in", "success");
     }
     
     async function deleteCard(e) {
