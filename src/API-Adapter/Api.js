@@ -119,6 +119,11 @@ class Api {
         })
         .then(resp => resp.json())
         .then(response => {
+          document.querySelector('.cities').addEventListener('click', (e) => {
+            if (e.target.closest(".sr-only-button")) {
+              deleteCard(e)
+            }
+          })
           response.locations.forEach(location => {
             const thislocation = new Location(location.id, location.name, location.user_id);
             renderAllLocationWeather(location.name, location.id, location.user_id);

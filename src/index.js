@@ -171,7 +171,6 @@
             return       
         } else {
             let nameValid = await api.fetchCreateLocation(name)
-            // console.log(nameValid)
         }
 
     } 
@@ -189,7 +188,7 @@
                         }@2x.png`;
     
                     const markup = `
-                    <button type="button"><span class="sr-only"></span></button>
+                    <button type="button" class="sr-only-button"><span class="sr-only"></span></button>
                     <h2 class="city-name" data-name="${name[0].toUpperCase() + name.slice(1)},${dataLocation.location_weather.data.address.country_code}">   
                         <span class="nameID">${name[0].toUpperCase() + name.slice(1)}</span>
                         <sup>${dataLocation.location_weather.data.address.country_code.toUpperCase()}</sup>
@@ -209,8 +208,7 @@
                     list.append(li);
                     clearForm();
                     displayForm();
-                    list.querySelectorAll('.ajax-section .city, span')
-                    .forEach(input => input.addEventListener('click', deleteCard));
+                  
     }    
 
     async function clearForm() {
@@ -222,12 +220,13 @@
         swal("Welcome!", "You are logged in", "success");
     }
     
+ 
+
     async function deleteCard(e) {
-        let listItems = e.currentTarget.id;
+        let listItems = e.target.parentElement.id;
         api.locationDelete(listItems)
-        let deleteItem = e.currentTarget
-        console.log(listItems) 
-        deleteItem.remove("city");
+        let deleteItem = e.target.parentElement
+        deleteItem.remove("city")
     }
     
 
