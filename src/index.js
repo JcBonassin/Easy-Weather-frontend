@@ -5,7 +5,7 @@
     const userLogin = document.querySelector(".login")
     const list = document.querySelector(".ajax-section .cities")
     const msg = document.querySelector(".msg")
-    const weatherLocation = new Location()
+    // const weatherLocation = new Location()
     
 
     $(window).on("hashchange", function () {
@@ -227,8 +227,7 @@
                         }@2x.png`;
     
                     const markup = `
-                    <button type="button"><span class="sr-only" id="locationId">${id}</span></button>
-                        
+                    <button type="button"><span class="sr-only"></span></button>
                     <h2 class="city-name" data-name="${name[0].toUpperCase() + name.slice(1)},${dataLocation.location_weather.data.address.country_code}">   
                         <span class="nameID">${name[0].toUpperCase() + name.slice(1)}</span>
                         <sup>${dataLocation.location_weather.data.address.country_code.toUpperCase()}</sup>
@@ -248,7 +247,7 @@
                     list.append(li);
                     clearForm();
                     displayForm();
-                    list.querySelectorAll('.ajax-section .city')
+                    list.querySelectorAll('.ajax-section .city, span')
                     .forEach(input => input.addEventListener('click', deleteCard));
     }    
 

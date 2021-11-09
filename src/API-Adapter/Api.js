@@ -3,12 +3,6 @@ class Api {
         this.baseURL = "http://localhost:7000/"
     }
 
-    async fetchUsers() {
-        let response = await fetch(this.baseURL + `/users`)
-        let data = await response.json()
-        return data
-    }
-
     async postUser(email, password, registerUser) {
         let data = {
           user: {
