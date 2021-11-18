@@ -61,6 +61,11 @@
     margin: 0 auto;
     padding: 0 15px;
   }
+
+  #logout {
+    text-align: right;
+    color: red;
+  }
   
   /* SECTION #1
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -313,5 +318,14 @@
   .api a:hover {
     text-decoration: none;
   }
+
+  #errorMsg{
+    color:red;
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 20px; 
+  }
+
+  
 
   

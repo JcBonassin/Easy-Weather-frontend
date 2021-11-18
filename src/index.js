@@ -68,7 +68,7 @@
         }
     
         else if (loginpassword.length < 8) {
-            document.getElementById("errorMsg").innerHTML = "Your password must include atleast 8 characters"
+            document.getElementById("errorMsg").innerHTML = "Your password must include at least 8 characters"
             return false;
         }
         else {
@@ -224,9 +224,31 @@
 
     async function deleteCard(e) {
         let listItems = e.target.parentElement.id;
+        console.log(listItems)
         api.locationDelete(listItems)
         let deleteItem = e.target.parentElement
+        console.log(deleteItem)
         deleteItem.remove("city")
+    }
+
+    async function logoutButton() {
+
+        let logoutClick = document.querySelector("#logout")  
+        let html = `
+        <a href="#" id="logout">Logout</a>
+        `
+        logoutClick.innerHTML = html
+        document.querySelector("#logout").addEventListener("click", endSession)  
+    }
+
+    async function endSession(e) {
+        let userId = e.currentTarget.id;
+        console.log(userId)
+        api.sessionEnd(userId);
+    }
+
+    async function end() {
+        location.reload()
     }
     
 

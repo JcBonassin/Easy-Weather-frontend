@@ -34,6 +34,7 @@ class Api {
                 loginButton.remove();
                 userLogin.remove();
                 welcomeLoggin();
+                logoutButton();
                 allLocation(data.user.id);
                 displayForm()  
             }
@@ -76,6 +77,7 @@ class Api {
                 loginButton.remove();
                 userLogin.remove();
                 welcomeLoggin();
+                logoutButton();
                 allLocation(data.user.id);
                 displayForm()  
             }
@@ -121,13 +123,28 @@ class Api {
         .then(response => {
           document.querySelector('.cities').addEventListener('click', (e) => {
             if (e.target.closest(".sr-only-button")) {
+              console.log(e.target)
               deleteCard(e)
             }
           })
+
+          // try code for no locations
+          // const listItems = list.querySelectorAll(".ajax-section .city");
+          // const listItemsArray = Array.from(listItems);
+          // const msg = document.querySelector(".msg");
+          // console.log(msg)
+          // const locationNumber = Array.prototype.slice.call(document.getElementsByClassName('city'))
+          // console.log(locationNumber)
+          // if (listItemsArray.length === 0) {
+            // console.log("here")
+            // document.querySelector(".msg").innerHTML = " you dont have any Locations yet"
+          // } 
+
           response.locations.forEach(location => {
             const thislocation = new Location(location.id, location.name, location.user_id);
             renderAllLocationWeather(location.name, location.id, location.user_id);
           });
+      
         })
       }
 
@@ -178,6 +195,26 @@ class Api {
         fetch(`${this.baseURL}locations/${nameId}`, configObj) 
         .then(function(response) {
         })
+      }
+
+      async sessionEnd(id) {
+          
+        const configObj = {
+          method: 'POST',
+          headers: {
+          }
+        }
+
+        fetch (`${this.baseURL}${id}`, configObj)
+        .then(function(response) {
+
+          if (confirm('Are you sure you want logout?')) {
+            end();
+          } else {
+            return
+          }
+        })
+
       }
 }
 
